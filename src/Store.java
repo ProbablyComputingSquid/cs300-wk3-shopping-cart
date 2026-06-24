@@ -1,3 +1,4 @@
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.*;
 
@@ -15,11 +16,32 @@ public class Store {
                 //System.out.println(input);
                 String[] splitInput = input.split(",");
                 // format: id,name,price,quantity
-                int id = Integer.parseInt(splitInput[0]);
-                String name = splitInput[1];
-                double price = Double.parseDouble(splitInput[2]);
-                int quantity = Integer.parseInt(splitInput[3]);
-                Item item = new Item(id,name,price,quantity);
+                String classType = splitInput[0];
+                int id = Integer.parseInt(splitInput[1]);
+                String name = splitInput[2];
+                double price = Double.parseDouble(splitInput[3]);
+                int quantity = Integer.parseInt(splitInput[4]);
+                // class creation;
+                Item item;
+                switch (classType) {
+                    case "P": // perishable item
+                        LocalDate expirationDate = LocalDate.parse(splitInput[5]);
+                        item = new PerishableItem(id,name,price,quantity,expirationDate);
+                        break;
+                    case "B": // beverage item
+                        boolean isCarbonated = Boolean.parseBoolean(splitInput[5]);
+                        item = new BeverageItem(id, name, price, quantity, isCarbonated);
+                        break;
+                    case "E": // electronics item
+                        int warrantyMonths = Integer.parseInt(splitInput[5]);
+                        item = new ElectronicsItem(id, name, price, quantity, warrantyMonths);
+                        break;
+                    default:
+                        System.out.println("Invalid entry found: " + input);
+                        item = null;
+                        // this should never happen
+                }
+                //Item item = new Item(id,name,price,quantity);
                 inventory.add(item);
                 input = bufferedReader.readLine();
             }
@@ -37,7 +59,7 @@ public class Store {
     void writeInventoryToFile() {
         try {
             StringBuilder inventoryCSV = new StringBuilder();
-            inventoryCSV.append("id,name,price,quantity\n");
+            inventoryCSV.append("type,id,name,price,quantity\n");
             for (Item item : inventory) {
                 inventoryCSV.append(item.toFileString() + "\n");
             }
@@ -72,7 +94,18 @@ public class Store {
         }
         return itemsArrayList;
     }
-
+    /**
+     * Method that returns an Item based on it's id
+     * @param id id of the item
+     */
+    public Item findItem(int id) {
+        for (Item item: inventory) {
+            if (item.getId() == id) {
+                return item;
+            }
+        }
+        return null;
+    }
     /**
      * Method that checks if the id and quantity can be withdrawn from the inventory
      * @param id id of item
@@ -80,13 +113,10 @@ public class Store {
      * @return boolean, see above
      */
     public boolean canWithdraw(int id, int quantity) {
-        if (quantity <= 0) {
-            System.out.println("Buy something at least!");
-            return false;
-        }
+
         for (Item item : inventory) {
             if (item.getId() == id) {
-                if (item.getQuantity() >= quantity) {
+                if (item.canAdd(quantity)) {
                     return true;
                 }
             }

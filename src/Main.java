@@ -62,11 +62,20 @@ public class Main {
                     }
                     break;
                 case (3): // add item to cart
-                    System.out.println("Add an item to your cart by typing it's ID, then the quantity of items. (e.g.) 1002 2");
+                    System.out.println("Add an item to your cart by typing it's ID, then the quantity of items. (e.g.) 102 2");
                     int idSelected = scanner.nextInt();
                     int quantitySelected = scanner.nextInt();
 
                     // after validating whether the withdrawal is allowed, perform it.
+                    if (!store.itemExists(idSelected)) {
+                        System.out.println("This item doesn't exist");
+                        break;
+                    }
+                    if (!store.findItem(idSelected).canAdd(quantitySelected)) {
+                        System.out.println("You can't add this amount to your cart!");
+                        break;
+                    }
+
                     shopper.addItemToCart(store.removeItem(idSelected,quantitySelected));
 
                     break;

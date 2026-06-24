@@ -1,0 +1,101 @@
+Type,ID,Name,BasePrice,Quantity,SubclassAttribute
+B,101,Classic Cola 12-Pack #101,1.08,50,true
+P,102,Avocados Bag #102,9.96,48,2026-07-01
+B,103,Classic Cola 12-Pack #103,5.38,19,true
+P,104,Organic Eggs #104,4.17,43,2026-06-20
+B,105,Organic Green Tea #105,6.33,104,false
+P,106,Whole Honeycrisp Apples #106,8.27,56,2026-07-03
+P,107,Baby Spinach #107,9.52,26,2026-06-24
+P,108,Organic Eggs #108,12.5,26,2026-06-21
+P,109,Romaine Lettuce #109,2.6,59,2026-06-25
+B,110,Diet Soda Can #110,7.02,108,false
+B,111,Classic Cola 12-Pack #111,8.29,63,true
+B,112,Diet Soda Can #112,7.19,94,false
+B,113,Organic Green Tea #113,6.24,20,true
+E,114,Electric Milk Frother #114,44.2,6,36
+E,115,Mini Rice Cooker #115,35.42,14,12
+E,116,Electric Kettle #116,18.37,11,6
+B,117,Coconut Water #117,2.19,108,true
+P,118,Whole Honeycrisp Apples #118,5.85,45,2026-07-01
+B,119,Organic Green Tea #119,6.09,113,true
+P,120,Fresh Whole Milk #120,10.75,30,2026-06-24
+P,121,Organic Eggs #121,11.99,41,2026-07-04
+B,122,Ginger Ale 2L #122,2.51,78,false
+B,123,Tonic Water #123,1.98,32,true
+B,124,Cold Brew Coffee #124,4.99,110,false
+B,125,Root Beer Float Pack #125,3.64,32,false
+P,126,Fresh Whole Milk #126,11.39,14,2026-06-30
+P,127,Red Raspberries #127,8.35,29,2026-06-26
+B,128,Tonic Water #128,4.91,85,true
+B,129,Energy Drink Sugar-Free #129,1.76,83,false
+B,130,Ginger Ale 2L #130,1.74,70,true
+E,131,Digital Kitchen Scale #131,48.14,11,12
+B,132,Club Soda #132,1.7,95,false
+B,133,Cold Brew Coffee #133,5.52,34,false
+P,134,Organic Bananas #134,8.38,36,2026-06-20
+P,135,Sourdough Bread #135,11.6,58,2026-07-02
+E,136,Coffee Grinder #136,12.31,21,6
+P,137,Broccoli Florets #137,10.87,53,2026-06-28
+P,138,Avocados Bag #138,9.08,40,2026-06-22
+E,139,Food Chopper #139,44.89,16,12
+B,140,Orange Juice with Pulp #140,6.44,40,false
+E,141,Immersion Blender #141,35.99,17,36
+P,142,Atlantic Salmon #142,4.07,26,2026-06-20
+B,143,Cold Brew Coffee #143,2.64,43,true
+P,144,Fresh Whole Milk #144,4.12,7,2026-07-03
+E,145,Electric Milk Frother #145,30.56,11,36
+P,146,Avocados Bag #146,9.81,41,2026-06-29
+E,147,Coffee Grinder #147,41.37,16,12
+P,148,Fresh Strawberries #148,9.07,27,2026-06-26
+E,149,Mini Rice Cooker #149,44.54,4,6
+P,150,Romaine Lettuce #150,9.86,56,2026-07-03
+P,151,Atlantic Salmon #151,3.69,39,2026-06-27
+P,152,Red Raspberries #152,3.6,34,2026-06-23
+P,153,Whole Honeycrisp Apples #153,10.78,59,2026-06-28
+P,154,Fresh Whole Milk #154,8.99,39,2026-07-03
+P,155,Greek Yogurt #155,12.14,59,2026-06-23
+P,156,Red Raspberries #156,7.07,18,2026-07-03
+E,157,Digital Kitchen Scale #157,16.58,3,36
+E,158,Mini Rice Cooker #158,21.4,25,36
+P,159,Organic Eggs #159,4.9,8,2026-06-29
+B,160,Cold Brew Coffee #160,1.35,55,true
+P,161,Broccoli Florets #161,7.27,59,2026-06-28
+P,162,Fresh Whole Milk #162,12.54,10,2026-07-03
+P,163,Greek Yogurt #163,8.33,48,2026-07-03
+P,164,Romaine Lettuce #164,2.87,41,2026-06-23
+B,165,Almond Milk Unsweetened #165,1.19,25,false
+B,166,Almond Milk Unsweetened #166,5.19,55,false
+P,167,Sliced Cheddar Cheese #167,4.23,30,2026-06-22
+B,168,Coconut Water #168,3.17,55,true
+P,169,Whole Honeycrisp Apples #169,8.63,41,2026-06-21
+P,170,Organic Eggs #170,7.31,13,2026-07-04
+E,171,Electric Milk Frother #171,45.16,14,24
+P,172,Whole Honeycrisp Apples #172,11.08,50,2026-06-24
+B,173,Orange Juice with Pulp #173,5.86,16,false
+B,174,Classic Cola 12-Pack #174,8.03,32,false
+P,175,Fresh Strawberries #175,10.03,14,2026-06-24
+E,176,Juice Extractor #176,18.42,13,12
+B,177,Coconut Water #177,7.37,79,false
+E,178,Digital Kitchen Scale #178,13.68,16,24
+P,179,Organic Bananas #179,5.33,13,2026-06-30
+E,180,Handheld Blender #180,39.64,20,36
+B,181,Sparkling Water #181,1.74,103,true
+B,182,Sparkling Water #182,7.23,89,true
+E,183,Handheld Blender #183,11.66,14,6
+E,184,Coffee Grinder #184,37.27,24,6
+E,185,Food Chopper #185,45.36,16,12
+P,186,Baby Spinach #186,12.72,56,2026-06-22
+E,187,Digital Kitchen Scale #187,17.16,13,36
+B,188,Lemon Sparkling Water #188,6.48,46,false
+P,189,Fresh Strawberries #189,5.89,7,2026-07-03
+E,190,Coffee Grinder #190,17.97,17,24
+E,191,Coffee Grinder #191,18.91,24,12
+E,192,Electric Kettle #192,21.13,5,24
+E,193,Immersion Blender #193,30.37,24,24
+P,194,Fresh Strawberries #194,11.58,21,2026-06-22
+B,195,Diet Soda Can #195,1.18,91,false
+E,196,Air Fryer Liner Set #196,41.45,16,6
+E,197,Juice Extractor #197,17.59,4,36
+P,198,Organic Eggs #198,5.68,9,2026-06-30
+E,199,Juice Extractor #199,22.55,6,24
+B,200,Diet Soda Can #200,5.96,56,false

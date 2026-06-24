@@ -18,4 +18,12 @@ public class BeverageItem extends Item{
     public double calculateFinalPrice() {
         return getPrice() + getBottleDeposit();
     }
+    @Override
+    public boolean canAdd(int qty) {
+        return getQuantity() <= qty && qty > 0;
+    }
+    @Override
+    public String toFileString() {
+        return "B," + super.toFileString() + "," + this.getCarbonation();
+    }
 }

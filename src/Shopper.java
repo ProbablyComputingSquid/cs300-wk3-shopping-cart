@@ -21,7 +21,7 @@ public class Shopper {
             String line = "%d x %s @ %.2f = %.2f\n";
             int quantity = item.getQuantity();
             double price = item.getPrice();
-            double subtotal = quantity * price;
+            double subtotal = item.calculateFinalPrice();
             line = String.format(line, quantity, item.getName(), price, subtotal);
             receipt += line;
             total += subtotal;
@@ -36,7 +36,7 @@ public class Shopper {
     }
     public void addItemToCart(Item item) {
         cart.add(item);
-        System.out.println("Successfully added " + item.getQuantity() + item.getName() + " to your cart!");
+        System.out.println("Successfully added " + item.getQuantity() + " " + item.getName() + " to your cart!");
     }
     private void writeReceipt() {
         try {

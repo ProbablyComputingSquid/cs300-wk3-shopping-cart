@@ -53,6 +53,10 @@ public class PerishableItem extends Item {
         */
         // simplified version of above
         return !(isExpired() || this.getQuantity() < qty);
-
     }
+    @Override
+    public String toFileString() {
+        return "P," + super.toFileString() + "," + expirationDate.toString();
+    }
+
 }

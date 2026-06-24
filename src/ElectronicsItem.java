@@ -14,6 +14,14 @@ public class ElectronicsItem extends Item {
     }
     @Override
     public boolean canAdd(int qty) {
-        return !(qty > this.getQuantity() || qty > 2);
+        return !(qty > this.getQuantity() || qty > 2) && qty > 0;
+    }
+    @Override
+    public String toFileString() {
+        return "E," + super.toFileString() + "," + this.getWarrantyMonths();
+    }
+
+    public int getWarrantyMonths() {
+        return this.warrantyMonths;
     }
 }
