@@ -6,30 +6,39 @@ import java.time.LocalDate;
 public class Tests {
     static Store store = new Store();
     static Shopper shopper = new Shopper("S. Hopper");
+    static PerishableItem apple = new PerishableItem(100, "apples", 2.00, 3, LocalDate.of(2026,6,25));
+    static BeverageItem coke = new BeverageItem(101, "coke", 1.99, 5, true);
+    static ElectronicsItem tv = new ElectronicsItem(102, "LG LED TV", 1999.99, 5, 6);
     static void testPerishableItem() {
-        System.out.println("Testing the PerishableItem class, its file string, and final price. ");
-        PerishableItem apple = new PerishableItem(100, "apples", 2.00, 3, LocalDate.of(2026,6,25));
-        System.out.println(apple.toFileString());
-        System.out.println(apple.calculateFinalPrice());
+        System.out.println("Testing the PerishableItem that is close to expiring, its file string, and final price. ");
+
+        System.out.println("File String: " + apple.toFileString());
+        System.out.println("Final price: $" + apple.calculateFinalPrice());
+        System.out.println("Testing adding a PerishableItem that expires in the more distant future. ");
+        PerishableItem pineapple = new PerishableItem(105, "pineapples", 5.00, 3, LocalDate.of(2026,7,25));
+        System.out.println("Final price: $" + pineapple.calculateFinalPrice());
     }
     static void testBeverageItem() {
         System.out.println("Testing creation of a beverage item, its file string, and final price: ");
-        BeverageItem coke = new BeverageItem(101, "coke", 1.99, 5, true);
-        System.out.println(coke.toFileString());
-        System.out.println(coke.calculateFinalPrice());
+
+        System.out.println("File String: " + coke.toFileString());
+        System.out.println("Final price: $" + coke.calculateFinalPrice());
     }
     static void testElectronicsItem() {
         System.out.println("Testing creation of an electronics item, it's file string, and final price. ");
-        ElectronicsItem tv = new ElectronicsItem(102, "LG LED TV", 1999.99, 5, 6);
-        System.out.println(tv.toFileString());
-        System.out.println(tv.calculateFinalPrice());
+
+        System.out.println("File String: " + tv.toFileString());
+        System.out.println("Final price: $" + tv.calculateFinalPrice());
     }
     static void testAddingItemsToCart() {
         System.out.println("Adding valid item to cart...");
-        Item coconutWater = store.removeItem(117, 5);
+        BeverageItem coconutWater = new BeverageItem(117, "coconut water", 1.99, 100, false);
         System.out.println("Testing adding more coconut waters than are in stock...");
         System.out.println("You can add 10 coconut water to cart? " + coconutWater.canAdd(10));
         shopper.addItemToCart(coconutWater);
+        shopper.addItemToCart(tv);
+        shopper.addItemToCart(apple);
+        shopper.addItemToCart(coke);
         System.out.println(shopper.generateReceipt());
     }
     static void testCheckout() {

@@ -20,7 +20,7 @@ public class BeverageItem extends Item{
     }
     @Override
     public boolean canAdd(int qty) {
-        return getQuantity() <= qty && qty > 0;
+        return this.getQuantity() >= qty && qty > 0;
     }
     @Override
     public String toFileString() {

@@ -21,7 +21,7 @@ public class Shopper {
             String line = "%d x %s @ %.2f = %.2f\n";
             int quantity = item.getQuantity();
             double price = item.getPrice();
-            double subtotal = item.calculateFinalPrice();
+            double subtotal = item.calculateFinalPrice() * quantity;
             line = String.format(line, quantity, item.getName(), price, subtotal);
             receipt += line;
             total += subtotal;

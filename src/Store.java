@@ -2,6 +2,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.*;
 
+import static java.lang.Object.*;
+
 public class Store {
     private ArrayList<Item> inventory = new ArrayList<>();
     public boolean readInventoryFile(String file) {
@@ -59,7 +61,7 @@ public class Store {
     void writeInventoryToFile() {
         try {
             StringBuilder inventoryCSV = new StringBuilder();
-            inventoryCSV.append("type,id,name,price,quantity\n");
+            inventoryCSV.append("Type,ID,Name,BasePrice,Quantity,SubclassAttribute\n");
             for (Item item : inventory) {
                 inventoryCSV.append(item.toFileString() + "\n");
             }
@@ -145,13 +147,24 @@ public class Store {
         }
         for (int i = 0; i < inventory.size(); i++) {
             if (inventory.get(i).getId() == id) {
+                // remove the quantity of item from the list
                 Item oldItem = inventory.get(i);
-                int oldQuantity = oldItem.getQuantity();
-                String oldName = oldItem.getName();
-                double oldPrice = oldItem.getPrice();
-                Item updatedEntry = new Item(id, oldName, oldPrice, oldQuantity - quantity);
-                inventory.set(i, updatedEntry);
-                Item newItem = new Item(id, oldName, oldPrice, quantity); // new item to be returned
+
+                Item newItem;
+                if (oldItem instanceof PerishableItem) {
+                    newItem = new PerishableItem(oldItem.getId(), oldItem.getName(), oldItem. getPrice(), oldItem.getQuantity(), ((PerishableItem) oldItem).getExpirationDate());
+                } else if (oldItem instanceof BeverageItem) {
+                    newItem = new BeverageItem(oldItem.getId(), oldItem.getName(), oldItem. getPrice(), oldItem.getQuantity(), ((BeverageItem) oldItem).getCarbonation());
+                } else if (oldItem instanceof ElectronicsItem) {
+                    newItem = new ElectronicsItem(oldItem.getId(), oldItem.getName(), oldItem. getPrice(), oldItem.getQuantity(), ((ElectronicsItem) oldItem).getWarrantyMonths());
+                } else {
+                    return null;
+                }
+
+                newItem.setQuantity(quantity);
+                oldItem.setQuantity(oldItem.getQuantity()-quantity);
+
+                // new item to be returned
                 return newItem;
             }
         }

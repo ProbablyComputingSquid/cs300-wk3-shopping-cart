@@ -1,6 +1,6 @@
 Type,ID,Name,BasePrice,Quantity,SubclassAttribute
 B,101,Classic Cola 12-Pack #101,1.08,50,true
-P,102,Avocados Bag #102,9.96,48,2026-07-01
+P,102,Avocados Bag #102,9.96,44,2026-07-01
 B,103,Classic Cola 12-Pack #103,5.38,19,true
 P,104,Organic Eggs #104,4.17,43,2026-06-20
 B,105,Organic Green Tea #105,6.33,104,false
