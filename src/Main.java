@@ -76,7 +76,7 @@ public class Main {
                         break;
                     }
 
-                    shopper.addItemToCart(store.removeItem(idSelected,quantitySelected));
+                    shopper.addItemToCart(store.removeItemQuantity(idSelected,quantitySelected));
 
                     break;
                 case (4): // check the shopper's current receipt

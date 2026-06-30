@@ -2,10 +2,8 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.io.*;
 
-import static java.lang.Object.*;
-
 public class Store {
-    private ArrayList<Item> inventory = new ArrayList<>();
+    private DataStore<Item> inventory = new DataStore<>();
     public boolean readInventoryFile(String file) {
         try {
             FileReader fileReader = new FileReader(file);
@@ -133,7 +131,7 @@ public class Store {
         }
         return false;
     }
-    public Item removeItem(int id, int quantity) {
+    public Item removeItemQuantity(int id, int quantity) {
         // this must edit the Item entry in the list, and remove the quantity specified fronm the inventory list.
         // then, it must return a new Item that contains the items checked out
         // the id and quantity are validated
@@ -145,24 +143,23 @@ public class Store {
             System.out.printf("We don't have %d of this item in stock!\n", quantity);
             return null;
         }
-        for (int i = 0; i < inventory.size(); i++) {
-            if (inventory.get(i).getId() == id) {
+        for (Item item : inventory) {
+            if (item.getId() == id) {
                 // remove the quantity of item from the list
-                Item oldItem = inventory.get(i);
 
                 Item newItem;
-                if (oldItem instanceof PerishableItem) {
-                    newItem = new PerishableItem(oldItem.getId(), oldItem.getName(), oldItem. getPrice(), oldItem.getQuantity(), ((PerishableItem) oldItem).getExpirationDate());
-                } else if (oldItem instanceof BeverageItem) {
-                    newItem = new BeverageItem(oldItem.getId(), oldItem.getName(), oldItem. getPrice(), oldItem.getQuantity(), ((BeverageItem) oldItem).getCarbonation());
-                } else if (oldItem instanceof ElectronicsItem) {
-                    newItem = new ElectronicsItem(oldItem.getId(), oldItem.getName(), oldItem. getPrice(), oldItem.getQuantity(), ((ElectronicsItem) oldItem).getWarrantyMonths());
+                if (item instanceof PerishableItem) {
+                    newItem = new PerishableItem(item.getId(), item.getName(), item. getPrice(), item.getQuantity(), ((PerishableItem) item).getExpirationDate());
+                } else if (item instanceof BeverageItem) {
+                    newItem = new BeverageItem(item.getId(), item.getName(), item. getPrice(), item.getQuantity(), ((BeverageItem) item).getCarbonation());
+                } else if (item instanceof ElectronicsItem) {
+                    newItem = new ElectronicsItem(item.getId(), item.getName(), item. getPrice(), item.getQuantity(), ((ElectronicsItem) item).getWarrantyMonths());
                 } else {
                     return null;
                 }
 
                 newItem.setQuantity(quantity);
-                oldItem.setQuantity(oldItem.getQuantity()-quantity);
+                item.setQuantity(item.getQuantity()-quantity);
 
                 // new item to be returned
                 return newItem;
