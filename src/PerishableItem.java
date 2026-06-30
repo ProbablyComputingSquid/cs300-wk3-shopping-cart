@@ -38,7 +38,7 @@ public class PerishableItem extends Item {
         if (this.isExpiringSoon()) {
             return getPrice() * getQuantity();
         } else {
-            return getPrice() * getQuantity() * 0.5;
+            return getPrice() * ((double) getQuantity()) * 0.5;
         }
     }
     @Override

@@ -10,7 +10,7 @@ public class ElectronicsItem extends Item {
     }
     @Override
     public double calculateFinalPrice() {
-        return getEcoFee() + this.getPrice() * this.getQuantity();
+        return (getEcoFee() + this.getPrice()) * this.getQuantity();
     }
     @Override
     public boolean canAdd(int qty) {

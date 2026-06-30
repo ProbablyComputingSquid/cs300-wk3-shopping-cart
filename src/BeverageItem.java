@@ -16,7 +16,7 @@ public class BeverageItem extends Item{
     }
     @Override
     public double calculateFinalPrice() {
-        return getPrice() + getBottleDeposit();
+        return (getPrice() + getBottleDeposit()) * getQuantity();
     }
     @Override
     public boolean canAdd(int qty) {
