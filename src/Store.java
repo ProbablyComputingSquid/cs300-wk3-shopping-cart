@@ -168,12 +168,13 @@ public class Store {
         return null; // this should never happen because the input is validated prior
     }
 
+
+
     public Store() {
         // fetch inventory from inventory.csv
         boolean result = readInventoryFile("inventory.csv");
         if (result) {
             System.out.println("Inventory successfully loaded!");
         }
-
     }
 }

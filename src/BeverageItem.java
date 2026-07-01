@@ -26,4 +26,10 @@ public class BeverageItem extends Item{
     public String toFileString() {
         return "B," + super.toFileString() + "," + this.getCarbonation();
     }
+
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" | Carbonation: %-5b | Bottle Deposit: $%.2f ",
+                getCarbonation(), getBottleDeposit());
+    }
 }

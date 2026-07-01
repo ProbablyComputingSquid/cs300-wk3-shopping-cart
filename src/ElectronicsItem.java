@@ -20,7 +20,10 @@ public class ElectronicsItem extends Item {
     public String toFileString() {
         return "E," + super.toFileString() + "," + this.getWarrantyMonths();
     }
-
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" | Eco Fee: %.2f | Warranty Months: %d", getEcoFee(), getWarrantyMonths());
+    }
     public int getWarrantyMonths() {
         return this.warrantyMonths;
     }

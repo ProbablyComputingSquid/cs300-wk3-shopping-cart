@@ -58,6 +58,16 @@ public class Tests {
             e.printStackTrace();
         }
     }
+    // TODO: implement tests
+    static void testInvarianceSafety() {
+
+    }
+    static void testBoundedWildcardTotaling() {
+
+    }
+    static void testGenericSearchRetrieval() {
+
+    }
     public static void main(String[] args) {
         testPerishableItem();
         testBeverageItem();

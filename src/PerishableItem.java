@@ -58,5 +58,8 @@ public class PerishableItem extends Item {
     public String toFileString() {
         return "P," + super.toFileString() + "," + expirationDate.toString();
     }
-
+    @Override
+    public String toString() {
+        return super.toString() + String.format(" | Expiration Date: %s", expirationDate.toString());
+    }
 }

@@ -17,6 +17,7 @@ public class Shopper {
         String receipt = "––– Transaction: " + name + " –––\n";
         int headerLength = receipt.length();
         double total = 0.0;
+        // TODO: replace with displayCatalog
         for (Item item : cart) {
             String line = "%d x %s @ %.2f = %.2f\n";
             int quantity = item.getQuantity();
