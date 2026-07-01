@@ -93,7 +93,7 @@ public abstract class Item {
     @Override
 
     public String toString() {
-        return String.format("ID: %-5d | Name: %-20s | Price: $%-6.2f | Stock: %-4d",
+        return String.format("ID: %-5d | Name: %-20s | Price: $%-6.2f | Amount: %-4d",
                 id, name, price, quantity);
     }
     /**

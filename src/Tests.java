@@ -1,14 +1,17 @@
+import jdk.jshell.execution.Util;
+
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.sql.SQLOutput;
 import java.time.LocalDate;
 
 public class Tests {
     static Store store = new Store();
     static Shopper shopper = new Shopper("S. Hopper");
-    static PerishableItem apple = new PerishableItem(100, "apples", 2.00, 3, LocalDate.of(2026,6,25));
-    static BeverageItem coke = new BeverageItem(101, "coke", 1.99, 5, true);
-    static ElectronicsItem tv = new ElectronicsItem(102, "LG LED TV", 1999.99, 5, 6);
+    static PerishableItem apple = new PerishableItem(100, "apples", 2.00, 3, LocalDate.of(2026,8,25));
+    static BeverageItem coke = new BeverageItem(101, "coke", 1.50, 5, true);
+    static ElectronicsItem tv = new ElectronicsItem(102, "LG LED TV", 1999.99, 2, 6);
     static void testPerishableItem() {
         System.out.println("Testing the PerishableItem that is close to expiring, its file string, and final price. ");
 
@@ -60,19 +63,36 @@ public class Tests {
     }
     // TODO: implement tests
     static void testInvarianceSafety() {
+        System.out.println(" Testing type invariance and safety: ");
+        DataStore<ElectronicsItem> electronicsItemDataStore = new DataStore<>();
+        // uncomment the following line to demonstrate type invariance
+        //electronicsItemDataStore.add(new BeverageItem(1234, "coke", 1.00, 3, true));
 
     }
     static void testBoundedWildcardTotaling() {
-
+        System.out.println(" Testing bounded wildcard totalling: ");
+        DataStore<Item> cart = new DataStore<>();
+        cart.add(apple);
+        cart.add(coke);
+        cart.add(tv);
+        System.out.println(" Cart total: ");
+        UtilityFunctions.displayCatalog(cart);
+        System.out.printf("$%.2f %n", UtilityFunctions.calculateCartTotal(cart));
     }
     static void testGenericSearchRetrieval() {
-
+        System.out.println("-- Testing generic search retrieval: --");
+        System.out.println("Class of known perishable item 102 (avocado): " + store.findItem(102).getClass());
+        System.out.println("Attempt to get unknown item 99999: " + store.findItem(99999));
+        System.out.println("Class of known electronic item 116 (electric kettle) " +  store.findItem(116) + " " + store.findItem(116).getClass());
     }
     public static void main(String[] args) {
-        testPerishableItem();
-        testBeverageItem();
+        //testPerishableItem();
+        //testBeverageItem();
         //testElectronicsItem();
-        testAddingItemsToCart();
-        testCheckout();
+        //testAddingItemsToCart();
+        //testCheckout();
+        testInvarianceSafety();
+        testBoundedWildcardTotaling();
+        testGenericSearchRetrieval();
     }
 }

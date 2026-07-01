@@ -36,9 +36,9 @@ public class PerishableItem extends Item {
     @Override
     public double calculateFinalPrice() {
         if (this.isExpiringSoon()) {
-            return getPrice() * getQuantity();
-        } else {
             return getPrice() * ((double) getQuantity()) * 0.5;
+        } else {
+            return getPrice() * getQuantity();
         }
     }
     @Override

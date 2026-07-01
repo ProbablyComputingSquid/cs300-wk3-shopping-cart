@@ -5,7 +5,10 @@ public class UtilityFunctions {
         }
     }
     public static double calculateCartTotal(DataStore<? extends Item> cart) {
-        return 0;
-// TODO!!
+        double total = 0;
+        for (Item item : cart) {
+            total += item.calculateFinalPrice();
+        }
+        return total;
     }
 }
