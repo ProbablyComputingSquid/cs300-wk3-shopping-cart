@@ -33,7 +33,7 @@ public class DataStore<T extends Item> implements Iterable<T> {
     public void clear() {
         this.items.clear();
     }
-
+    public boolean isEmpty() {return this.items.isEmpty();}
     // override to allow for the iteration over the collection
     @Override
     public Iterator<T> iterator() {

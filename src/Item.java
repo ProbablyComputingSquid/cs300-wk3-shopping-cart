@@ -100,14 +100,11 @@ public abstract class Item {
      * Calculates the item's final price
      * @return double price
      */
-    public double calculateFinalPrice() {
-        return 0;
-    }
+    public abstract double calculateFinalPrice();
+
     /**
      * determines whether you can add x quantity of items to the cart
      * @return boolean
      */
-    public boolean canAdd(int qty) {
-        return false;
-    }
+    public abstract boolean canAdd(int qty);
 }

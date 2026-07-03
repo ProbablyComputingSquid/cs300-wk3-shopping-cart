@@ -1,5 +1,4 @@
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.io.*;
 
 public class Store {
@@ -79,20 +78,20 @@ public class Store {
     }
     /**
      Searches the store's inventory for item(s) matching the query (case-insensitive).
-     @return ArrayList of items that match the search query
+     @return DataStore of items that match the search query
       * */
-    public ArrayList<Item> searchInventory(String query) {
-        ArrayList<Item> itemsArrayList = new ArrayList<>();
+    public DataStore<Item> searchInventory(String query) {
+        DataStore<Item> itemDataStore = new DataStore<>();
         query = query.toLowerCase().strip();
         for (Item item : inventory) {
             if (item.getName().toLowerCase().contains(query)) {
-                itemsArrayList.add(item);
+                itemDataStore.add(item);
             }
         }
-        if (itemsArrayList.isEmpty()) {
+        if (itemDataStore.isEmpty()) {
             System.out.println("Could not find any items matching query: " + query);
         }
-        return itemsArrayList;
+        return itemDataStore;
     }
     /**
      * Method that returns an Item based on it's id

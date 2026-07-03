@@ -1,0 +1,52 @@
+––– Transaction: S. Hopper –––
+100 x coconut water @ 1.99 = 199.00
+5 x LG LED TV @ 1999.99 = 50024.75
+3 x apples @ 2.00 = 9.00
+5 x coke @ 1.99 = 10.45
+Total: $50243.2
+–––––––––––––––––––––––––––––––––– Transaction: S. Hopper –––
+100 x coconut water @ 1.99 = 199.00
+5 x LG LED TV @ 1999.99 = 50024.75
+3 x apples @ 2.00 = 9.00
+5 x coke @ 1.99 = 10.45
+Total: $50243.2
+–––––––––––––––––––––––––––––––––– Transaction: S. Hopper –––
+100 x coconut water @ 1.99 = 199.00
+5 x LG LED TV @ 1999.99 = 50024.75
+3 x apples @ 2.00 = 9.00
+5 x coke @ 1.99 = 10.45
+Total: $50243.2
+–––––––––––––––––––––––––––––––––– Transaction: S. Hopper –––
+100 x coconut water @ 1.99 = 1.99
+5 x LG LED TV @ 1999.99 = 10004.95
+3 x apples @ 2.00 = 3.00
+5 x coke @ 1.99 = 2.09
+Total: $10012.03
+–––––––––––––––––––––––––––––––––– Transaction: S. Hopper –––
+100 x coconut water @ 1.99 = 199.00
+5 x LG LED TV @ 1999.99 = 10024.95
+3 x apples @ 2.00 = 3.00
+5 x coke @ 1.99 = 10.45
+Total: $10237.400000000001
+–––––––––––––––––––––––––––––––––– Transaction: S. Hopper –––
+100 x coconut water @ 1.99 = 199.00
+5 x LG LED TV @ 1999.99 = 10024.95
+3 x apples @ 2.00 = 3.00
+5 x coke @ 1.99 = 10.45
+Total: $10237.400000000001
+–––––––––––––––––––––––––––––––––– Transaction: shopp. er –––
+2 x Avocados Bag #102 @ 9.96 = 19.92
+Total: $19.92
+–––––––––––––––––––––––––––––––––– Transaction: shopp. er –––
+2 x Avocados Bag #102 @ 9.96 = 19.92
+Total: $19.92
+–––––––––––––––––––––––––––––––––– Transaction: testing –––
+2 x Avocados Bag #102 @ 9.96 = 19.92
+Total: $19.92
+–––––––––––––––––––––––––––––––– Transaction: johnny appleseed –––
+3 x Whole Honeycrisp Apples #106 @ 8.27 = 12.41
+Total: $12.41
+––––––––––––––––––––––––––––––––––––––––– Transaction: johnny appleseed –––
+5 x Whole Honeycrisp Apples #106 @ 8.27 = 20.67
+Total: $20.67
+––––––––––––––––––––––––––––––––––––––

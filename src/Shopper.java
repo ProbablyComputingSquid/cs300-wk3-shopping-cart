@@ -7,7 +7,7 @@ public class Shopper {
     // should also have an addCart function (which checks if the inventory is available, then adds it to the receipt).
     // addCart selects by ID and quantity
     // checkout function which writes the current store inventory permanently to the file.
-    private ArrayList<Item> cart = new ArrayList<>();
+    private DataStore<Item> cart = new DataStore<>();
     private final String name; // jb says it should be final
     public Shopper(String name) {
         // nothing to be done here?
@@ -16,7 +16,6 @@ public class Shopper {
     public String generateReceipt() {
         String receipt = "––– Transaction: " + name + " –––\n";
         int headerLength = receipt.length();
-        double total = 0.0;
         // TODO: replace with displayCatalog
         for (Item item : cart) {
             String line = "%d x %s @ %.2f = %.2f\n";
@@ -26,9 +25,8 @@ public class Shopper {
             line = String.format(line, quantity, item.getName(), price, subtotal);
 
             receipt += line;
-            total += subtotal;
         }
-        receipt += "Total: $" + total + "\n";
+        receipt += String.format("Total: $%.2f\n", UtilityFunctions.calculateCartTotal(cart));
         String bottomLine = "";
         for (int i = 0; i < headerLength; i++) {
             bottomLine += "–"; // en dash to preserve width

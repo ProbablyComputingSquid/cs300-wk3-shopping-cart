@@ -56,7 +56,7 @@ public class Main {
                 case (2): // search inventory for an item
                     System.out.println("Enter your search query: ");
                     String searchQuery = scanner.nextLine();
-                    ArrayList<Item> searchedItems = store.searchInventory(searchQuery);
+                    DataStore<Item> searchedItems = store.searchInventory(searchQuery);
                     for (Item item : searchedItems) {
                         System.out.println(item);
                     }
