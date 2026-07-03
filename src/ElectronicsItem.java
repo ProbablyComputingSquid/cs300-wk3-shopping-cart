@@ -1,3 +1,15 @@
+/******************************************************************************
+ * Course:      CS300 - Summer 2026
+ * Program:     Program: Week 5 Polymorphism shopping cart
+ * Author:        Jacob Bolling
+ * Wisc Email:  jbolling@wisc.edu
+ * Created on:  6/22/2026
+ * Version:     1.3
+ *              Electronics (Item subclass) which tracks eco fee and warranty months.
+
+ * @see Item
+
+ *******************************************************************************/
 public class ElectronicsItem extends Item {
     private int warrantyMonths;
 

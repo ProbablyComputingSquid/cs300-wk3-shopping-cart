@@ -1,3 +1,17 @@
+/******************************************************************************
+ * Course:      CS300 - Summer 2026
+ * Program:     Program: Week 5 Polymorphism shopping cart
+ * Author:        Jacob Bolling
+ * Wisc Email:  jbolling@wisc.edu
+ * Created on:  6/22/2026
+ * Version:     3.2
+ *              Shopper handling class which handles things and logic related to the shopper
+
+ * @see Item
+ * @see DataStore
+
+ *******************************************************************************/
+
 import java.time.LocalDate;
 import java.io.*;
 

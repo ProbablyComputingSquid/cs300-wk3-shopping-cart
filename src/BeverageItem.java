@@ -1,3 +1,15 @@
+/******************************************************************************
+ * Course:      CS300 - Summer 2026
+ * Program:     Program: Week 5 Polymorphism shopping cart
+ * Author:        Jacob Bolling
+ * Wisc Email:  jbolling@wisc.edu
+ * Created on:  6/22/2026
+ * Version:     1.2
+ *              Beverage Item subclass which tracks carbonation, etc.
+
+ * @see Item
+
+ *******************************************************************************/
 public class BeverageItem extends Item{
     private boolean isCarbonated;
 

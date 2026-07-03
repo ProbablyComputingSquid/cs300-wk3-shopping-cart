@@ -1,12 +1,19 @@
-import java.util.ArrayList;
+/******************************************************************************
+ * Course:      CS300 - Summer 2026
+ * Program:     Program: Week 5 Polymorphism shopping cart
+ * Author:        Jacob Bolling
+ * Wisc Email:  jbolling@wisc.edu
+ * Created on:  6/22/2026
+ * Version:     3.2
+ *              Shopper handling class which handles things and logic related to the shopper
+
+ * @see Item
+ * @see DataStore
+
+ *******************************************************************************/
+
 import java.io.*;
 public class Shopper {
-    // specifications:
-    // must have a cart attribute, which it can view (using item view) and display the total cost of the car
-    // should display like 2x bananas if there are 2 bananas, their individual total and their subtotal
-    // should also have an addCart function (which checks if the inventory is available, then adds it to the receipt).
-    // addCart selects by ID and quantity
-    // checkout function which writes the current store inventory permanently to the file.
     private DataStore<Item> cart = new DataStore<>();
     private final String name; // jb says it should be final
     public Shopper(String name) {

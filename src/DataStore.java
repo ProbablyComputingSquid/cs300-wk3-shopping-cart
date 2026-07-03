@@ -1,12 +1,21 @@
-import java.util.Collection;
+/******************************************************************************
+ * Course:      CS300 - Summer 2026
+ * Program:     Program: Week 5 Polymorphism shopping cart
+ * Author:        Jacob Bolling
+ * Wisc Email:  jbolling@wisc.edu
+ * Created on:  6/30/2026
+ * Version:     1.1
+ *              DataStore wrapper class which ensures type safety using polymorphism. implements iterable interface for easier code management
+
+ * @see Item
+
+ *******************************************************************************/
+
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
-// okay so im trying to make sense of this right now, so a datastore is just a generic
-// wrapper for a collection of item
-// question to ask: is it okay to use ArrayList in the DataStore class or do we need to manually implement our
-// own add methods for the collection.
+
 public class DataStore<T extends Item> implements Iterable<T> {
     private ArrayList<T> items;
     public DataStore(ArrayList<T> tArrayList) {

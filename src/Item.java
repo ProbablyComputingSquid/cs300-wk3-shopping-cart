@@ -1,3 +1,15 @@
+/******************************************************************************
+ * Course:      CS300 - Summer 2026
+ * Program:     Program: Week 5 Polymorphism shopping cart
+ * Author:        Jacob Bolling
+ * Wisc Email:  jbolling@wisc.edu
+ * Created on:  6/22/2026
+ * Version:     1.5
+ *               Item abstract class upon which all other items are built
+
+ * @see Item
+
+ *******************************************************************************/
 public abstract class Item {
 
     // Fields
