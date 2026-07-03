@@ -61,11 +61,13 @@ public class Tests {
             e.printStackTrace();
         }
     }
-    // TODO: implement tests
+    // TODO: implement test
     static void testInvarianceSafety() {
         System.out.println(" Testing type invariance and safety: ");
         DataStore<ElectronicsItem> electronicsItemDataStore = new DataStore<>();
         // uncomment the following line to demonstrate type invariance
+        System.out.println("Compile time errors cannot be tested at runtime. Uncomment the line beneath this to test type invariance and safety");
+
         //electronicsItemDataStore.add(new BeverageItem(1234, "coke", 1.00, 3, true));
 
     }
@@ -75,15 +77,15 @@ public class Tests {
         cart.add(apple);
         cart.add(coke);
         cart.add(tv);
-        System.out.println(" Cart total: ");
+        System.out.println("Cart: ");
         UtilityFunctions.displayCatalog(cart);
-        System.out.printf("$%.2f %n", UtilityFunctions.calculateCartTotal(cart));
+        System.out.printf("Cart total: $%.2f %n", UtilityFunctions.calculateCartTotal(cart));
     }
     static void testGenericSearchRetrieval() {
         System.out.println("-- Testing generic search retrieval: --");
         System.out.println("Class of known perishable item 102 (avocado): " + store.findItem(102).getClass());
         System.out.println("Attempt to get unknown item 99999: " + store.findItem(99999));
-        System.out.println("Class of known electronic item 116 (electric kettle) " +  store.findItem(116) + " " + store.findItem(116).getClass());
+        System.out.println("Class of known electronic item 116 (electric kettle) " +  store.findItem(116) + " CLASS: " + store.findItem(116).getClass());
     }
     public static void main(String[] args) {
         //testPerishableItem();
