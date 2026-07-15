@@ -14,9 +14,17 @@
 
 import java.time.LocalDate;
 import java.io.*;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.format.DateTimeParseException;
+import java.util.LinkedList;
 
 public class Store {
-    private DataStore<Item> inventory = new DataStore<>();
+    private DataStore<Item> inventory;
+    private String listTypeChoice;
+    public DataStore<Item> getInventory() {
+        return inventory;
+    }
     public boolean readInventoryFile(String file) {
         try {
             FileReader fileReader = new FileReader(file);
@@ -38,8 +46,15 @@ public class Store {
                 Item item;
                 switch (classType) {
                     case "P": // perishable item
-                        LocalDate expirationDate = LocalDate.parse(splitInput[5]);
-                        item = new PerishableItem(id,name,price,quantity,expirationDate);
+                        // parse the inconsistent date time formats
+                        try {
+                            DateTimeFormatter formatter = DateTimeFormatter.ofPattern("M/d/yyyy");
+                            LocalDate expirationDate = LocalDate.parse(splitInput[5], formatter);
+                            item = new PerishableItem(id, name, price, quantity, expirationDate);
+                        } catch (DateTimeParseException e) {
+                            LocalDate expirationDate = LocalDate.parse(splitInput[5]);
+                            item = new PerishableItem(id, name, price, quantity, expirationDate);
+                        }
                         break;
                     case "B": // beverage item
                         boolean isCarbonated = Boolean.parseBoolean(splitInput[5]);
@@ -182,12 +197,32 @@ public class Store {
     }
 
 
-
-    public Store() {
+    private void initialize(String file) {
         // fetch inventory from inventory.csv
-        boolean result = readInventoryFile("inventory.csv");
+
+        if (this.listTypeChoice.equals("L")) {
+            this.inventory = new DataStore<>(new LinkedList<>());
+            System.out.println("Using LinkedList");
+        } else {
+            this.inventory = new DataStore<>(); // defaults to arraylist
+            System.out.println("Using ArrayList");
+        }
+        boolean result = readInventoryFile(file);
         if (result) {
             System.out.println("Inventory successfully loaded!");
         }
+    }
+    public Store(String listTypeChoice) {
+        this.listTypeChoice = listTypeChoice;
+        initialize("inventory.csv"); // default inventory location
+    }
+    public Store(String file, String listTypeChoice) {
+        // fetch inventory from inventory.csv
+        this.listTypeChoice = listTypeChoice;
+        initialize(file);
+    }
+
+    public void sortInventory() {
+        inventory.sort();
     }
 }

@@ -10,7 +10,7 @@
  * @see Item
 
  *******************************************************************************/
-public abstract class Item {
+public abstract class Item implements Comparable<Item>{
 
     // Fields
     private int id;
@@ -119,4 +119,12 @@ public abstract class Item {
      * @return boolean
      */
     public abstract boolean canAdd(int qty);
+
+    /**
+     * Compares an item's id to another. (this.id, other.id)
+     * @return -1 if less, 0 if same, 1 if greater.
+     */
+    public int compareTo(Item other) {
+        return Integer.compare(this.id, other.id);
+    }
 }

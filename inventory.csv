@@ -1,6 +1,6 @@
 Type,ID,Name,BasePrice,Quantity,SubclassAttribute
 B,101,Classic Cola 12-Pack #101,1.08,50,true
-P,102,Avocados Bag #102,9.96,38,2026-07-01
+P,102,Avocados Bag #102,9.96,5,2026-08-01
 B,103,Classic Cola 12-Pack #103,5.38,19,true
 P,104,Organic Eggs #104,4.17,43,2026-06-20
 B,105,Organic Green Tea #105,6.33,104,false
@@ -81,7 +81,7 @@ P,179,Organic Bananas #179,5.33,13,2026-06-30
 E,180,Handheld Blender #180,39.64,20,36
 B,181,Sparkling Water #181,1.74,103,true
 B,182,Sparkling Water #182,7.23,89,true
-E,183,Handheld Blender #183,11.66,14,6
+E,183,Handheld Blender #183,11.66,10,6
 E,184,Coffee Grinder #184,37.27,24,6
 E,185,Food Chopper #185,45.36,16,12
 P,186,Baby Spinach #186,12.72,56,2026-06-22

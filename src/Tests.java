@@ -1,97 +1,78 @@
-import java.io.BufferedReader;
-import java.io.FileReader;
-import java.io.IOException;
-import java.time.LocalDate;
+/******************************************************************************
+ * Course:      CS300 - Summer 2026
+ * Program:     Program: Week 6 Performance Testing shopping data structures
+ * Author:        Jacob Bolling
+ * Wisc Email:  jbolling@wisc.edu
+ * Created on:  7/15/2026
+ * Version:     1.0
+ *               various test functions
 
+ * @see Item
+ * @see DataStore
+
+ *******************************************************************************/
 public class Tests {
-    static Store store = new Store();
-    static Shopper shopper = new Shopper("S. Hopper");
-    static PerishableItem apple = new PerishableItem(100, "apples", 2.00, 3, LocalDate.of(2026,8,25));
-    static BeverageItem coke = new BeverageItem(101, "coke", 1.50, 5, true);
-    static ElectronicsItem tv = new ElectronicsItem(102, "LG LED TV", 1999.99, 2, 6);
-    static void testPerishableItem() {
-        System.out.println("Testing the PerishableItem that is close to expiring, its file string, and final price. ");
+    // TODO
+    public Item binarySearch(Store storeSearched, int itemId) {
 
-        System.out.println("File String: " + apple.toFileString());
-        System.out.println("Final price: $" + apple.calculateFinalPrice());
-        System.out.println("Testing adding a PerishableItem that expires in the more distant future. ");
-        PerishableItem pineapple = new PerishableItem(105, "pineapples", 5.00, 3, LocalDate.of(2026,7,25));
-        System.out.println("Final price: $" + pineapple.calculateFinalPrice());
     }
-    static void testBeverageItem() {
-        System.out.println("Testing creation of a beverage item, its file string, and final price: ");
 
-        System.out.println("File String: " + coke.toFileString());
-        System.out.println("Final price: $" + coke.calculateFinalPrice());
-    }
-    static void testElectronicsItem() {
-        System.out.println("Testing creation of an electronics item, it's file string, and final price. ");
+    static Store arrayListStore = new Store("products_random_id_100k.csv", "A");
+    static Shopper shopper = new Shopper("Samuel Hopper");
 
-        System.out.println("File String: " + tv.toFileString());
-        System.out.println("Final price: $" + tv.calculateFinalPrice());
-    }
-    static void testAddingItemsToCart() {
-        System.out.println("Adding valid item to cart...");
-        BeverageItem coconutWater = new BeverageItem(117, "coconut water", 1.99, 100, false);
-        System.out.println("Testing adding more coconut waters than are in stock...");
-        System.out.println("You can add 10 coconut water to cart? " + coconutWater.canAdd(10));
-        shopper.addItemToCart(coconutWater);
-        shopper.addItemToCart(tv);
-        shopper.addItemToCart(apple);
-        shopper.addItemToCart(coke);
-        System.out.println(shopper.generateReceipt());
-    }
-    static void testCheckout() {
-        System.out.println("Testing system checkout");
-        shopper.checkout();
-        System.out.println("Shopper's receipt after checkout:");
-        System.out.println(shopper.generateReceipt());
-        try {
-            FileReader fileReader = new FileReader("inventory.csv");
-            BufferedReader bufferedReader = new BufferedReader(fileReader);
-            String input = bufferedReader.readLine();
-            while (input != null) {
-                System.out.println(input);
-                input = bufferedReader.readLine();
+    // Test case I: test the time to make 200,000 searches (using a random id as the key in each search,
+    // and the search should be linear since the data is unsorted) for both ArrayList and LinkedList.
+    // Record the time and print the result. Note that the number 200,000 can be adjusted according to your computer speed.
+    private static void testNSearches(int searches, Store storeUsed) {
+        System.out.println("Test case 1: Testing " + searches + " random searches...");
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < searches; i++) {
+            storeUsed.findItem((int) (Math.random() * 100001) + 101);
+            if (i % 10000 == 0) {
+                System.out.println(i + " searches completed");
             }
-        } catch (IOException e) {
-            e.printStackTrace();
         }
+        long timeElapsed = (System.currentTimeMillis() - start);
+        System.out.println("Tested " + searches + " searches. It took " + timeElapsed + "ms.");
     }
-    // TODO: find better way to do this test
-    static void testInvarianceSafety() {
-        System.out.println(" Testing type invariance and safety: ");
-        DataStore<ElectronicsItem> electronicsItemDataStore = new DataStore<>();
-        // uncomment the following line to demonstrate type invariance
-        System.out.println("Compile time errors cannot be tested at runtime. Uncomment the line beneath this to test type invariance and safety");
-
-        //electronicsItemDataStore.add(new BeverageItem(1234, "coke", 1.00, 3, true));
-
+    /*
+    i. Sort both the LinkedList and ArrayList of Item objects\
+      that you have created out of the file provided using calls like "Collections.sort(itemList);"
+       with itemList being the ArrayList or LinkedList  that you have created.
+ii. Write your own version of binarySearch method (using the generic List as the member type) using recursion
+(refer to Week 6 slides, but you need to use List, not array).
+iii. Call the binarySearch method for 200,000 searches (adjust this number if necessary) on both LinkedList and ArrayList.
+Record the performance.
+     */
+    private static void sortStoreInventory(Store store) {
+        System.out.println("Test case 2.1: Testing sorting.");
+        long start = System.currentTimeMillis();
+        store.sortInventory();
+        long timeElapsed = System.currentTimeMillis() - start;
+        System.out.println("Tested sorting. It took " + timeElapsed + "ms.");
     }
-    static void testBoundedWildcardTotaling() {
-        System.out.println(" Testing bounded wildcard totalling: ");
-        DataStore<Item> cart = new DataStore<>();
-        cart.add(apple);
-        cart.add(coke);
-        cart.add(tv);
-        System.out.println("Cart: ");
-        UtilityFunctions.displayCatalog(cart);
-        System.out.printf("Cart total: $%.2f %n", UtilityFunctions.calculateCartTotal(cart));
-    }
-    static void testGenericSearchRetrieval() {
-        System.out.println("-- Testing generic search retrieval: --");
-        System.out.println("Class of known perishable item 102 (avocado): " + store.findItem(102).getClass());
-        System.out.println("Attempt to get unknown item 99999: " + store.findItem(99999));
-        System.out.println("Class of known electronic item 116 (electric kettle) " +  store.findItem(116) + " CLASS: " + store.findItem(116).getClass());
-    }
+    // min id is 101
+    // max id is 100100
     public static void main(String[] args) {
-        //testPerishableItem();
-        //testBeverageItem();
-        //testElectronicsItem();
-        //testAddingItemsToCart();
-        //testCheckout();
-        testInvarianceSafety();
-        testBoundedWildcardTotaling();
-        testGenericSearchRetrieval();
+        // find the min and max id
+        int min = 100000;
+        int max = 0;
+        int id;
+        for (Item item : arrayListStore.getInventory()) {
+            id = item.getId();
+            if (id < min) {
+                min = id;
+            }
+            if (id > max) {
+                max = id;
+            }
+        }
+        System.out.println("Min id: " + min);
+        System.out.println("Max id: " + max);
+
+        System.out.println("ArrayList tests:");
+        testNSearches(100_000, arrayListStore);
+        sortStoreInventory(arrayListStore);
+
     }
 }

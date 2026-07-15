@@ -19,7 +19,9 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.println("Greetings shopper, what is your name? ");
         String username = scanner.nextLine();
-        Store store = new Store();
+        System.out.println("Hello " + username + " would you like to use ArrayList (A) or LinkedList (L)? ");
+        String listTypeChoice = scanner.nextLine().strip().toUpperCase();
+        Store store = new Store(listTypeChoice);
 
         Shopper shopper = new Shopper(username);
         boolean shopping = true;
@@ -58,7 +60,8 @@ public class Main {
                         break;
                     }
                     if (!store.findItem(idSelected).canAdd(quantitySelected)) {
-                        System.out.println("You can't add this amount to your cart!");
+                        System.out.println(store.findItem(idSelected).getClass());
+                        System.out.println("You can't add this amount (" + quantitySelected + ") to your cart!");
                         break;
                     }
 

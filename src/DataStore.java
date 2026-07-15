@@ -11,16 +11,18 @@
 
  *******************************************************************************/
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
+import java.util.*;
 
 
 public class DataStore<T extends Item> implements Iterable<T> {
-    private ArrayList<T> items;
+    private List<T> items;
     public DataStore(ArrayList<T> tArrayList) {
         this.items = tArrayList;
     }
+    public DataStore(LinkedList<T> tLinkedList) {
+        this.items = tLinkedList;
+    }
+    private boolean isSorted = false;
     public DataStore() {
         this.items = new ArrayList<T>();
     }
@@ -47,5 +49,12 @@ public class DataStore<T extends Item> implements Iterable<T> {
     @Override
     public Iterator<T> iterator() {
         return items.iterator();
+    }
+    public void sort() {
+        Collections.sort(items);
+        isSorted = true;
+    }
+    public boolean isSorted() {
+        return isSorted;
     }
 }
